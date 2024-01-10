@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .dashboard h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard a {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.dashboard a {
+  margin-top: 7px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dashboard a:hover {
+  background-color: #45a049;
+}
+
+.dashboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<body>
+    <div class="container">
+        <div class="login form">
+          <header>Join Room</header>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter room ID" name="roomID">
+            <input type="submit" class="button" value="Join">
+            <p>
+              {% if success %}
+              <p style="color: green;"><b>{{ success }}</b></p>
+              {% endif %}
+              {% if error %}
+              <p style="color: red;">{{ error }}</p>
+              {% endif %}
+            </p>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
